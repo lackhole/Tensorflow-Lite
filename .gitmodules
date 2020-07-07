@@ -1,6 +1,7 @@
-[submodule "tensorflow"]
-	path = tensorflow
-	url = https://github.com/tensorflow/tensorflow
 [submodule "include"]
 	path = include
 	url = https://github.com/visualcamp/Tensorflow-Lite-Headers
+[submodule "cutemodel"]
+	path = cutemodel
+	url = https://github.com/visualcamp/Tensorflow-Lite
+	branch = cutemodel
