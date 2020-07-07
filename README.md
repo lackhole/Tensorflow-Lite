@@ -1,3 +1,7 @@
+
+* Change Macro for using GPU or NNAPI delegates (or it won't compile)
+https://github.com/visualcamp/Tensorflow-Lite/blob/cutemodel/CuteModel.hpp#L8
+
 * Header
 ```
 #include "cutemodel/CuteModel.hpp"
