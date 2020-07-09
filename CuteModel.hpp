@@ -46,6 +46,10 @@ namespace ct {
         CuteModel(CuteModel &&other) noexcept;
         CuteModel& operator=(CuteModel &&other) noexcept;
         
+        /** Copy con,op (deleted) */
+        CuteModel(const CuteModel &other) = delete;
+        CuteModel& operator=(const CuteModel &other) = delete;
+        
         /** build from model buffer */
         void buildFromBuffer(const void* buffer, size_t bufferSize);
         
@@ -144,9 +148,6 @@ namespace ct {
 //        /** i/o tensor byte storage */
 //        std::vector<size_t> inputTensorByteArray;
 //        std::vector<size_t> outputTensorByteArray;
-        
-        CuteModel(const CuteModel &other) = delete;
-        CuteModel& operator=(const CuteModel &other) = delete;
     };
     
     
@@ -191,7 +192,7 @@ namespace ct {
         std::vector<T> output((TfLiteTensorByteSize(outputTensor(index)) / sizeof(T)));
         TfLiteTensorCopyToBuffer(outputTensor(index), output.data(), TfLiteTensorByteSize(outputTensor(index)));
         
-        return std::move(output);
+        return output;
     }
     
     template<typename T>
