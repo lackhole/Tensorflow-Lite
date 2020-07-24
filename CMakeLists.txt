@@ -14,17 +14,17 @@ add_library(lib_tflite_gpu SHARED IMPORTED)
 set_target_properties(lib_tflite_gpu PROPERTIES IMPORTED_LOCATION
         ${TFLITE_LIB_PATH}/libtensorflowlite_gpu_delegate.so)
 
-#add_library(lib_nnapi STATIC IMPORTED)
-#set_target_properties(lib_nnapi PROPERTIES IMPORTED_LOCATION
-#        ${TFLITE_LIB_PATH}/libnnapi_delegate.a)
-#
-#add_library(lib_nnapi_impl STATIC IMPORTED)
-#set_target_properties(lib_nnapi_impl PROPERTIES IMPORTED_LOCATION
-#        ${TFLITE_LIB_PATH}/libnnapi_implementation.a)
-#
-#add_library(lib_nnapi_util STATIC IMPORTED)
-#set_target_properties(lib_nnapi_util PROPERTIES IMPORTED_LOCATION
-#        ${TFLITE_LIB_PATH}/libnnapi_util.a)
+add_library(lib_nnapi STATIC IMPORTED)
+set_target_properties(lib_nnapi PROPERTIES IMPORTED_LOCATION
+        ${TFLITE_LIB_PATH}/libnnapi_delegate.a)
+
+add_library(lib_nnapi_impl STATIC IMPORTED)
+set_target_properties(lib_nnapi_impl PROPERTIES IMPORTED_LOCATION
+        ${TFLITE_LIB_PATH}/libnnapi_implementation.a)
+
+add_library(lib_nnapi_util STATIC IMPORTED)
+set_target_properties(lib_nnapi_util PROPERTIES IMPORTED_LOCATION
+        ${TFLITE_LIB_PATH}/libnnapi_util.a)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
 
@@ -43,14 +43,8 @@ target_include_directories(tflite PUBLIC
 target_link_libraries(tflite
         lib_tflite
         lib_tflite_gpu
+        lib_nnapi
+        lib_nnapi_impl
+        lib_nnapi_util
         log
-)
-
-#target_link_libraries(tflite
-#        lib_tflite
-#        lib_tflite_gpu
-#        lib_nnapi
-#        lib_nnapi_impl
-#        lib_nnapi_util
-#        log
-#        )
+        )
