@@ -5,9 +5,13 @@
 #ifndef CUTEMODEL_H
 #define CUTEMODEL_H
 
-#define USE_GPU_DELEGATE 1
-#define USE_NNAPI_DELEGATE 0
-
+#if __ANDROID__
+    #define USE_GPU_DELEGATE 1
+    #define USE_NNAPI_DELEGATE 0
+#else
+    #define USE_GPU_DELEGATE 0
+    #define USE_NNAPI_DELEGATE 0
+#endif
 
 #include <vector>
 #include <string>
