@@ -108,8 +108,8 @@ namespace ct {
         template<typename T> void copyOutputToBuffer(int index, T&& buffer, size_t bufferSize) const noexcept;
         
         /** return number of i/o tensors */
-        auto inputTensorCount() const;
-        auto outputTensorCount() const;
+        size_t inputTensorCount() const;
+        size_t outputTensorCount() const;
         
         /** return specific index of tensor's length of an element array */
         size_t inputTensorLength(int index) const;
