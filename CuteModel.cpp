@@ -98,11 +98,11 @@ bool CuteModel::isBuilt() const noexcept {
     return interpreter != nullptr;
 }
 
-auto CuteModel::inputTensorCount() const {
+size_t CuteModel::inputTensorCount() const {
     return TfLiteInterpreterGetInputTensorCount(interpreter.get());
 }
 
-auto CuteModel::outputTensorCount() const {
+size_t CuteModel::outputTensorCount() const {
     return TfLiteInterpreterGetOutputTensorCount(interpreter.get());
 }
 
